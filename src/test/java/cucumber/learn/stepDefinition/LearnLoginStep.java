@@ -71,11 +71,13 @@ public class LearnLoginStep {
 //	}
 	@Given("user give the username as {string}")
 	public void userGiveTheUsernameAs(String name) {
+		System.out.println(name);
 		loginPage.sendUserName(name);
 	}
 
 	@Then("user give the password as {string}")
 	public void userGiveThePasswordAs(String password) {
+		System.out.println(password);
 		loginPage.sendPassword(password);
 	}
 
@@ -84,9 +86,10 @@ public class LearnLoginStep {
 
 		loginPage.clickSubmitButton();
 		WebElement errorElmnt = loginPage.getErrorElmnt();
+		System.out.println(LoginExpectedConditions.LOGIN_EXPECTED.getMessage());
 		if (errorElmnt != null) {
 			try {
-				Assert.assertEquals("Your username is invalid!sdfdsaa", errorElmnt.getText());
+				Assert.assertEquals(LoginExpectedConditions.LOGIN_EXPECTED.getMessage(), errorElmnt.getText());
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}

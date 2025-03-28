@@ -2,6 +2,7 @@ package cucumber.learn.pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +14,9 @@ public class LoginPage {
 
 	WebDriver driver;
 	static WebDriverWait wait;
+	String errorMessage;
+	
+	public static final String EXPECTED_ERROR_MESSAGE = "Your username is invalid!";
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
